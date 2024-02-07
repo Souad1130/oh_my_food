@@ -1,0 +1,236 @@
+@import "base";
+@import "mixins";
+
+body {
+    box-sizing: border-box;
+    margin: 0 auto;
+    font-family: 'Roboto', sans-serif;
+    max-width: $max-width;
+    fieldset { 
+        border: 0;
+     }
+     header {
+        box-shadow: 0 5px 10px lightgrey;
+        padding: 25px;
+        .logo {
+            display: flex;
+            align-items: center;
+           
+            i {
+                font-size: 2rem;
+                color: black;
+                cursor: pointer;
+                align-items: center;
+            }
+            .titre {
+                margin: 0 auto;
+                font-family: "Shrikhand", cursive;
+                
+            }
+        }
+        
+    }   
+
+    main {
+        background-color: white;
+        img {
+            height: 300px;
+            object-fit: cover;
+            object-position: 50% 70%;
+            width: 100%;
+        }
+        .gris { 
+            background-color: $--ultralightgray;
+            width: 73%;
+            margin: 0 auto;
+            box-sizing: border-box;
+        } 
+        .titre-menu {
+            background-color: $--ultralightgray;
+            position: relative;
+            top: -4rem;
+            border-radius: 3rem 3rem 0 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+           
+            h1 {
+                font-family: 'Shrikhand', cursive;
+                font-size: 1.5rem;
+                margin-right: 20px;
+                
+            }
+            i {
+                display: flex;
+                font-size: 2rem;
+                padding-right: 3rem;
+            }
+            @include color-heart;
+        }
+
+        @include choix-menu;
+        @include btn-style;
+
+    }
+}
+
+footer {
+    background-color: $--grayblack;
+    color: white;
+    padding: 1rem 0 1rem 1.5rem;
+    .footer-1 {
+        display: flex;
+        align-items: center;
+        margin-right: 50px;
+        h1 {
+            display: flex;
+            justify-content: center;
+            font-family: 'Shrikhand', cursive;
+            font-weight: normal;
+            margin: 0;
+            margin-left: auto;
+            padding-left: 10px;
+            a {
+                text-decoration: none;
+                color: white;
+                align-items: center;
+            }
+
+        }
+        .list-footer {
+            margin-left: 130px;
+            ul {
+                list-style: none;
+                display: flex;
+                align-items: center;
+                padding: 0;
+                margin: 0;
+                li {
+                    margin-left: 20px;
+                    i {
+                        padding-right: 5px;
+                    }
+                }
+            }
+        }
+    } 
+}
+
+
+
+/*
+*       MEDIA QUERIES
+*/
+
+/******* media phone **********/
+
+@media (max-width: $smartphone) {
+
+    body {
+        main {
+            width: 100%;
+            flex-direction: column;
+            img {
+                object-fit: cover;
+                object-position: 50% 70%;
+                width: 100%;
+            }
+            .gris {
+                flex-direction: column; 
+                background-color: $--ultralightgray;
+                width: 100%;
+            } 
+            .titre-menu {
+                width: 100%;
+                margin-right: 2px;
+            }
+            .menus {
+                flex-direction: column;
+                width: 100%;
+                border: 0;
+                padding:5px;
+                margin-top: 5px;
+                margin-left: 0;
+                padding-left: 0;
+                .articles {
+                    flex-direction: column;
+                    .entrees, .plats, .desserts {
+                        width: 90%;
+                        margin: 0;
+                        display: flex;                      
+                        h3 {
+                            display: flex;
+                            justify-content: flex-start;
+                            
+                        }
+
+                        @include article-menu;
+
+                        .article-menu {
+                            max-width: 100%!important;
+                            margin: 5px!important;
+                            .description p {
+                                font-size: 13px;
+                            }
+                        }
+                    }
+                }
+            }
+            footer {
+                display: flex;
+                flex-direction: column;
+                width: 95%;
+                background-color: $--grayblack;
+                color: white;
+                .footer-1 {
+                    display: flex;
+                    flex-direction: column-reverse;
+                    align-items: flex-start;
+                    
+                    h1 {
+                        display: flex;
+                        justify-content: flex-start;
+                        font-family: 'Shrikhand', cursive;
+                        font-weight: normal;
+                        margin: 5px;
+                       
+                        a {
+                            text-decoration: none;
+                            color: white;
+                            align-items: center;
+                        }
+            
+                    }
+                    .list-footer {
+                        margin-left: 5px;
+                        ul {
+                            list-style: none;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: flex-start;
+                            padding: 0;
+                            margin: 0;
+                            li {
+                                margin-left: 2px;
+                                i {
+                                    padding-right: 5px;
+                                }
+                            }
+                        }
+                    }
+                } 
+            }
+            
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
